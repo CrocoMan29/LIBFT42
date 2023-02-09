@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 11:49:02 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/25 23:44:20 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/02 12:50:30 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,9 +22,7 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	while (n--)
 	{
 		if (*str == symbole)
-		{
 			return (str);
-		}
 		str++;
 	}
 	return (NULL);

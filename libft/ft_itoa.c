@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 21:12:22 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/26 21:33:42 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/04 01:33:22 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ char	*ft_itoa(int n)
 	l = count_nbr(n);
 	p = (char *)malloc(sizeof(char) * (l + 1));
 	if (!p)
-		return (0);
+		return (NULL);
 	p[l] = '\0';
 	if (n == 0)
 	{

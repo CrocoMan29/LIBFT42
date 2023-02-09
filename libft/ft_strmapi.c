@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 17:48:04 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/26 00:23:54 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/02 12:51:44 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,29 +17,26 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 	unsigned int	i;
 	char			*str;
 
-	i = ft_strlen(s);
-	str = (char *)malloc(i + 1);
+	i = 0;
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc(ft_strlen(s) + 1);
 	if (!str)
 		return (NULL);
-	i = 0;
 	while (s[i])
 	{
-		str[i] = (*f)(i, s[i]);
+		str[i] = f(i, s[i]);
 		i++;
 	}
 	str[i] = '\0';
 	return (str);
 }
 
-// char	ft_up(unsigned int i, char c)
+// char tt_lower(unsigned int i, char s)
 // {
-// 	//i = 32;
-// 	return (c + (char) i);
+// 	return (ft_tolower(s));
 // }
-
-// int	main()
+// int main ()
 // {
-//     void *p = &ft_up;
-//     char *s = "SAAD";
-//     printf("%s",ft_strmapi(s,p));
+// 	printf("%s\n", tt("Ab", tt_lower));
 // }

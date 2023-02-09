@@ -1,4 +1,15 @@
-OBJS = ${SRCS:.c=.o}
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2022/10/31 08:34:51 by yismaail          #+#    #+#              #
+#    Updated: 2023/01/30 04:16:57 by yismaail         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 SRCS	=	ft_atoi.c \
 			ft_bzero.c \
 			ft_calloc.c \
@@ -32,7 +43,11 @@ SRCS	=	ft_atoi.c \
 			ft_strtrim.c \
 			ft_substr.c \
 			ft_tolower.c \
-			ft_toupper.c 			
+			ft_toupper.c \
+			ft_isspace.c \
+			ft_isempty.c
+
+OBJS 	= 	${SRCS:.c=.o}					
 CC		=	cc
 CFLAGS	=	-Wall -Wextra -Werror
 NAME	=	libft.a
@@ -42,13 +57,10 @@ all		:	${NAME}
 ${NAME}	:	${OBJS}
 			ar -rc libft.a ${OBJS}
 
-${OBJS}	: 
-			${CC} ${CFLAGS} -c ${SRCS}
-
 clean	:
 			rm -f $(OBJS) 
 
 fclean	:	clean
-			rm ${NAME}
+			rm -f ${NAME}
 
 re		:	fclean all

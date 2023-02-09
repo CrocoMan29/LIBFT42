@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 18:09:22 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/25 23:45:37 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/01/29 16:01:16 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,11 @@ size_t	ft_strlen(const char *s)
 	size_t	i;
 
 	i = 0;
-	while (s[i])
-		i++;
-	return (i);
+	if (s)
+	{
+		while (s[i])
+			i++;
+		return (i);
+	}
+	return (0);
 }

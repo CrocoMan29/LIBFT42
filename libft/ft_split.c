@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/21 16:05:51 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/26 03:49:03 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/04 01:30:30 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,18 +44,29 @@ static void	ft_inc(const char *s, int *arr0, int *arr1, char c)
 	}
 }
 
+static char	**ft_free_tab(char **arr)
+{
+	int	i;
+
+	i = -1;
+	while (arr[++i])
+		free(arr[i]);
+	free(arr);
+	return (NULL);
+}
+
 char	**ft_split(char const *s, char c)
 {
 	char	**aldynamic;
-	int		l;
-	int		*arr;
+	int		arr[4];
 
-	arr = malloc(sizeof(int) * 3);
-	arr[0] = 0;
-	l = 0;
 	if (!s)
+		return (0);
+	arr[0] = 0;
+	arr[3] = 0;
+	aldynamic = ft_calloc((wd_count(s, c) + 1), sizeof(char *));
+	if (!aldynamic)
 		return (NULL);
-	aldynamic = malloc((wd_count(s, c) + 1) * sizeof(char *));
 	while (s[arr[0]])
 	{
 		if (s[arr[0]] == c)
@@ -65,10 +76,25 @@ char	**ft_split(char const *s, char c)
 			arr[2] = arr[0];
 			arr[1] = 0;
 			ft_inc(s, &arr[0], &arr[1], c);
-			aldynamic[l++] = ft_substr(s, arr[2], arr[1]);
+			aldynamic[arr[3]] = ft_substr(s, arr[2], arr[1]);
+			if (!(aldynamic[(arr[3])++]))
+				return (ft_free_tab(aldynamic));
 		}
 	}
-	aldynamic[l] = NULL;
-	free(arr);
 	return (aldynamic);
 }
+
+//int main()
+//{
+// 	printf("g\n");
+// 	while (malloc(1024LL * 1024 * 1024))
+// 		;
+// 	printf("failed\n");
+// 	while (malloc(100000))
+// 		;
+// 	printf("failed\n");
+// 	while (malloc(1))
+// 		;
+// 	printf("hello\n");
+// 	ft_split("ab", 'b');
+//}

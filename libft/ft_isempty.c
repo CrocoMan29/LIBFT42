@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memset.c                                        :+:      :+:    :+:   */
+/*   ft_isempty.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/10/06 19:05:17 by yismaail          #+#    #+#             */
-/*   Updated: 2022/11/02 10:09:15 by yismaail         ###   ########.fr       */
+/*   Created: 2023/01/30 04:03:48 by yismaail          #+#    #+#             */
+/*   Updated: 2023/02/06 20:33:04 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+int	ft_isempty(char *str)
 {
-	size_t	i;
+	int	i;
 
 	i = 0;
-	while (i < len)
-	{
-		((unsigned char *)b)[i] = c;
-		i++;
-	}
-	return (b);
+	if (ft_isspace(str) == 1)
+		return (1);
+	return (0);
 }

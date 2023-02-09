@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/11 19:30:20 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/25 23:43:43 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/04 01:33:36 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ static int	check_max(int nbr, int signe)
 
 int	ft_atoi(const char *str)
 {
-	char				*sttr;
 	unsigned long long	i;
 	int					signe;
 	unsigned long long	nbr;
@@ -34,18 +33,17 @@ int	ft_atoi(const char *str)
 	i = 0;
 	signe = 1;
 	nbr = 0;
-	sttr = (char *)str;
-	while ((sttr[i] >= 9 && sttr[i] <= 13) || sttr[i] == ' ')
+	while ((str[i] >= 9 && str[i] <= 13) || str[i] == ' ')
 		i++;
-	if (sttr[i] == '-' || sttr[i] == '+')
+	if (str[i] == '-' || str[i] == '+')
 	{
-		if (sttr[i] == '-')
+		if (str[i] == '-')
 			signe *= -1;
 		i++;
 	}
-	while (ft_isdigit(sttr[i]) == 1)
+	while (ft_isdigit(str[i]) == 1)
 	{
-		nbr = nbr * 10 + (sttr[i++] - 48);
+		nbr = nbr * 10 + (str[i++] - 48);
 	}
 	check_max(nbr, signe);
 	return (nbr * signe);

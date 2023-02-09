@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/10 22:56:07 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/26 21:35:14 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/02 10:30:02 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	size_t	i;
 	size_t	j;
 
-	if (dst == NULL || src)
-		return (0);
 	i = 0;
 	j = ft_strlen(src);
 	if (dstsize == 0)

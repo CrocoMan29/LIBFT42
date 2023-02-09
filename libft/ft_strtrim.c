@@ -6,22 +6,43 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/20 16:35:02 by yismaail          #+#    #+#             */
-/*   Updated: 2022/10/25 23:46:12 by yismaail         ###   ########.fr       */
+/*   Updated: 2022/11/04 01:30:42 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char	*ft_strtrim(char const *s1, char const *set)
+static int	ft_strcchr(const char *s, char c)
 {
-	size_t	len;
+	int	i;
 
-	if (!s1 || !set)
-		return (NULL);
-	while (*s1 && ft_strchr(set, *s1))
-		s1++;
-	len = ft_strlen(s1);
-	while (len > 0 && ft_strchr(set, s1[len]))
-		len--;
-	return (ft_substr(s1, 0, (len + 1)));
+	i = 0;
+	while (s[i] != '\0')
+	{
+		if (s[i] == c)
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+char	*ft_strtrim(const char *s, const char *set)
+{
+	int	i;
+	int	j;
+	int	len;
+
+	if (!s || !set)
+		return (0);
+	i = 0;
+	j = ft_strlen(s) - 1;
+	while (s[i] != '\0' && ft_strcchr(set, s[i]) == 1)
+		i++;
+	while (j >= 0 && ft_strcchr(set, s[j]))
+		j--;
+	if (j == -1)
+		len = 0;
+	else
+		len = j - i + 1;
+	return (ft_substr(s, i, len));
 }
