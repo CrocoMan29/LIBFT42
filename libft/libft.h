@@ -6,7 +6,7 @@
 /*   By: yismaail <yismaail@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/06 23:02:17 by yismaail          #+#    #+#             */
-/*   Updated: 2023/01/30 04:11:10 by yismaail         ###   ########.fr       */
+/*   Updated: 2023/03/07 17:35:10 by yismaail         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,12 @@
 # include<stdlib.h>
 # include<string.h>
 # include<unistd.h>
+
+typedef struct s_list
+{
+    void            *content;
+    struct  s_list  *next;
+}					t_list;
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
@@ -52,5 +58,10 @@ char	*ft_strmapi(char const *s, char (*f)(unsigned int, char));
 char	*ft_strtrim(char const *s1, char const *set);
 int		ft_isspace(char *str);
 int		ft_isempty(char *str);
+void    ft_lstadd_back(t_list **lst, t_list *new);
+void    ft_lstadd_front(t_list **lst, t_list *new);
+t_list  *ft_lstlast(t_list *lst);
+t_list  *ft_lstnew(void *content);
+int		ft_lstsize(t_list *lst);
 
 #endif
